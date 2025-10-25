@@ -1,7 +1,6 @@
 from datetime import datetime, date, timedelta
 import calendar
 
-
 def clamp_to_month_end(year: int, month: int, day: int) -> date:
     last_day = calendar.monthrange(year, month)[1]
     return date(year, month, min(day, last_day))
