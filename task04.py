@@ -37,7 +37,7 @@ def get_upcoming_birthdays(users, today = date.today()):
 
         days_remaining = (next_birthday - today).days
 
-        if 0 <= days_remaining <= 7:
+        if 0 <= days_remaining < 7:
             congratulation_date = next_monday(next_birthday)
             result.append({
                 "name": user["name"],
@@ -80,7 +80,7 @@ got = get_upcoming_birthdays(users, today=today)
 assert got == expected, f"TEST 3 failed:\nExpected: {expected}\nGot: {got}"
 
 today = date(2024, 4, 24)
-users = [{"name": "April Leap", "birthday": "1990.04.31"}]  # буде скориговано до 1990.04.30
+users = [{"name": "April Leap", "birthday": "1990.04.31"}]
 expected = [{"name": "April Leap", "congratulation_date": "2024.04.30"}]
 got = get_upcoming_birthdays(users, today=today)
 assert got == expected, f"TEST 4 failed:\nExpected: {expected}\nGot: {got}"
